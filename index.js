@@ -6,7 +6,7 @@ const port = 3001;
 const bodyParser = require("body-parser");
 
 const corsOptions = {
-  origin: "http://127.0.0.1:5500", // Ganti dengan domain aplikasi template SB Admin Anda
+  origin: "https://frontend-admin-production.up.railway.app/", // Ganti dengan domain aplikasi template SB Admin Anda
   optionsSuccessStatus: 200, // Beberapa browser legacy (IE11, SmartTV) tidak mendukung respons 204
 };
 
