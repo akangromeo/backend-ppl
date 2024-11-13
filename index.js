@@ -10,6 +10,8 @@ const corsOptions = {
   optionsSuccessStatus: 200, // Beberapa browser legacy (IE11, SmartTV) tidak mendukung respons 204
 };
 
+app.options("*", cors(corsOptions));
+
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
