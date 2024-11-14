@@ -156,6 +156,24 @@ app.get("/api/mahasiswa/krs/:nim/", (req, res) => {
   });
 });
 
+app.get("/api/mahasiswa/krs/", (req, res) => {
+  const query = `
+    SELECT k.*, mk.* FROM krs k join mata_kuliah mk on k.kodeMk = mk.kodeMk ;
+  `;
+  db.query(query, [nim], (err, results) => {
+    if (err) {
+      console.error("Error fetching KRS ALL", err);
+      res.status(500).send("Error fetching KRS ALL");
+      return;
+    }
+    if (results.length === 0) {
+      res.status(404).send("KRS Student not found");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
 });
