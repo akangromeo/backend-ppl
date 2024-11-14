@@ -160,7 +160,7 @@ app.get("/api/mahasiswa/krs/", (req, res) => {
   const query = `
     SELECT k.*, mk.* FROM krs k join mata_kuliah mk on k.kodeMk = mk.kodeMk ;
   `;
-  db.query(query, [nim], (err, results) => {
+  db.query(query, (err, results) => {
     if (err) {
       console.error("Error fetching KRS ALL", err);
       res.status(500).send("Error fetching KRS ALL");
